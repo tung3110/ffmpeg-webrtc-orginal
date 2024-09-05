@@ -65,7 +65,6 @@ sudo apt-get install libsdl2-dev
    
     ./configure --enable-libx264 --enable-gpl --enable-cross-compile --enable-libpulse --enable-libopus --enable-ffplay --extra-libs='-L/root/ffmpeg-webrtc-orginal/FFmpeg-n4.3.3/metartc6 -lmetartccore6 -lpthread -lsrtp2 -lssl -lcrypto -ldl'
     make -j8
-    
     # 编译期间会报很多错误，可以不用理会
     make install
 

@@ -22,7 +22,7 @@
   wget \
   yasm \
   zlib1g-dev
-sudo apt install libunistring-dev libaom-dev libdav1d-dev
+sudo apt install libunistring-dev libaom-dev libdav1d-dev libsrt-dev
 sudo apt-get install libsdl2-dev
    apt-get install libopus-dev
    sudo apt-get install libx264-dev

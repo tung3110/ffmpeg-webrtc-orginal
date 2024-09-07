@@ -60,10 +60,20 @@ sudo apt-get install libsdl2-dev
     make
     cp libcrypto.a libssl.a ~/ffmpeg-webrtc-orginal/FFmpeg-n4.3.3/metartc6
 
+    wget https://www.openssl.org/source/openssl-3.1.0.tar.gz
+
+    sudo tar -xf openssl-3.1.0.tar.gz
+
+    cd openssl-3.1.0
+
+    sudo ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
+
+    sudo make && sudo make install
+        
 3、编译FFmpeg-webrtc    
 
    
-    ./configure --enable-libx264 --enable-gpl --enable-cross-compile --enable-libpulse --enable-libopus --enable-ffplay --disable-shared --enable-static --extra-cflags='--static' --pkg-config-flags="--static" --enable-libsrt  --extra-libs='-L/home/tungnh/test/ffmpeg-webrtc/FFmpeg-n4.3.3/metartc6 -lmetartccore6 -lpthread -lsrtp2 -lssl -lcrypto -ldl' --extra-ldflags=-ldl 
+    ./configure --enable-libx264 --enable-gpl --enable-cross-compile --enable-libpulse --enable-libopus --enable-ffplay --disable-shared --enable-static --extra-cflags='--static' --pkg-config-flags="--static" --enable-libsrt --enable-nonfree --enable-libass --enable-libfreetype --enable-libmp3lame --enable-openssl --extra-libs='-L/home/tungnh/test/ffmpeg-webrtc/FFmpeg-n4.3.3/metartc6 -lmetartccore6 -lpthread -lsrtp2 -lssl -lcrypto -ldl' --extra-ldflags=-ldl 
     make -j8
     # 编译期间会报很多错误，可以不用理会
     make install

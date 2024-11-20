@@ -1,1 +1,50 @@
-
+0. sudo apt-get update -qq && sudo apt-get -y install \
+  autoconf \
+  automake \
+  build-essential \
+  cmake \
+  git-core \
+  libfreetype6-dev \
+  libgnutls28-dev \
+  libmp3lame-dev \
+  libsdl2-dev \
+  libtool \
+  libva-dev \
+  libvdpau-dev \
+  libvorbis-dev \
+  libxcb1-dev \
+  libxcb-shm0-dev \
+  libxcb-xfixes0-dev \
+  meson \
+  ninja-build \
+  pkg-config \
+  texinfo \
+  wget \
+  yasm \
+  zlib1g-dev
+sudo apt install libunistring-dev libaom-dev libdav1d-dev libsrt-dev
+sudo apt-get install libsdl2-dev
+   apt-get install libopus-dev
+   sudo apt-get install libx264-dev
+   sudo apt-get install libass-dev (bao loi)
+1. cd ffmpeg-webrtc/FFmpeg-n4.3.3/metartc6/metartc6
+    
+    cd libmetartccore6
+    
+    # cmake_x64会自动创建build文件夹
+    ./cmake_arm.sh
+    cp build/libmetartccore6.a ../../
+     tar zxvf libsrtp-2-fit.tar.gz
+    cd libsrtp-2-fit/
+    ./configure 
+    make
+    cp libsrtp2.a ../
+    # 编译openssl
+    tar zxvf openssl-1.1-fit.tar.gz
+    cd openssl-1.1-fit/
+    ./config
+    make
+    cp libcrypto.a libssl.a ../
+    ./configure --arch=armv7-a --target-os=linux  --enable-libx264 --enable-gpl --enable-cross-compile --enable-libpulse --enable-libopus --enable-ffplay --disable-shared --enable-static --extra-cflags='--static' --pkg-config-flags="--static" --enable-libsrt --enable-nonfree --enable-libass --enable-libfreetype --enable-libmp3lame --enable-openssl --extra-libs='-L/home/ubuntu/ffmpeg-webrtc/FFmpeg-n4.3.3/metartc6 -lmetartccore6 -lpthread -lsrtp2 -lssl -lcrypto -ldl' --extra-ldflags=-ldl
+    make -j4
+    make install

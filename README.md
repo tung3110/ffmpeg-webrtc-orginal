@@ -21,12 +21,15 @@
   texinfo \
   wget \
   yasm \
-  zlib1g-dev
-sudo apt install libunistring-dev libaom-dev libdav1d-dev libsrt-dev
-sudo apt-get install libsdl2-dev
-   apt-get install libopus-dev
-   sudo apt-get install libx264-dev
-   sudo apt-get install libass-dev (bao loi)
+  zlib1g-dev \
+  libunistring-dev \
+  libaom-dev \
+  libdav1d-dev \
+  libsrt-dev \
+  libsdl2-dev \
+  libopus-dev \
+  libx264-dev \
+  libass-dev
 1、首先编译metartc相关包
 
     # cmake_x64会自动创建build文件夹
@@ -37,7 +40,7 @@ sudo apt-get install libsdl2-dev
    
     ./cmake_x64.sh
     
-    # 把编译成功的 libmetartccore6.a 复制到metartc6文件夹下
+    
     cp build/libmetartccore6.a ~/ffmpeg-webrtc-orginal/FFmpeg-n4.3.3/metartc6
 
     # Requires ffmpeg to be configured with --enable-gpl --enable-libx264
@@ -60,20 +63,9 @@ sudo apt-get install libsdl2-dev
     ./config
     make
     cp libcrypto.a libssl.a ~/ffmpeg-webrtc-orginal/FFmpeg-n4.3.3/metartc6
-
-    wget https://www.openssl.org/source/openssl-3.1.0.tar.gz
-
-    sudo tar -xf openssl-3.1.0.tar.gz
-
-    cd openssl-3.1.0
-
-    sudo ./config --prefix=/usr/local/ssl --openssldir=/usr/local/ssl shared zlib
-
-    sudo make && sudo make install
         
 3、编译FFmpeg-webrtc    
 
-   
     ./configure --enable-libx264 --enable-gpl --enable-cross-compile --enable-libpulse --enable-libopus --enable-ffplay --disable-shared --enable-static --extra-cflags='--static' --pkg-config-flags="--static" --enable-libsrt --enable-nonfree --enable-libass --enable-libfreetype --enable-libmp3lame --enable-openssl --extra-libs='-L/home/tungnh/test/ffmpeg-webrtc/FFmpeg-n4.3.3/metartc6 -lmetartccore6 -lpthread -lsrtp2 -lssl -lcrypto -ldl' --extra-ldflags=-ldl 
     make -j8
     # 编译期间会报很多错误，可以不用理会

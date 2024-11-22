@@ -29,11 +29,12 @@ sudo apt-get install libsdl2-dev
    sudo apt-get install libass-dev (bao loi)
 1、首先编译metartc相关包
 
-    cd ffmpeg-webrtc/FFmpeg-n4.3.3/metartc6/metartc6
-    
-    cd libmetartccore6
-    
     # cmake_x64会自动创建build文件夹
+
+    cd ffmpeg-webrtc/FFmpeg-n4.3.3/metartc6
+
+    cd /metartc6/libmetartccore6
+   
     ./cmake_x64.sh
     
     # 把编译成功的 libmetartccore6.a 复制到metartc6文件夹下

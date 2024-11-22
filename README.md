@@ -30,6 +30,7 @@
   libopus-dev \
   libx264-dev \
   libass-dev
+
 1、首先编译metartc相关包
 
     # cmake_x64会自动创建build文件夹

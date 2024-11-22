@@ -29,8 +29,8 @@
   libsdl2-dev \
   libopus-dev \
   libx264-dev \
-  libass-dev
-
+  libass-dev \
+  libopus-dev 
 1、首先编译metartc相关包
 
     # cmake_x64会自动创建build文件夹
@@ -78,11 +78,6 @@
     2）使用whip推流到SRS流媒体服务器，但是拉流失败！目前暂未找到原因
     
     3）把RTMP流推送到SRS，SRS把RTMP转成RTC，使用FFmpeg-webrtc whep拉流，成功实现延迟1秒左右
-# opus 配置
-    sudo apt-get install libopus-dev
-    
-# 编译FFmpeg-Webrtc
-    ./configure --enable-libx264 --enable-gpl --enable-cross-compile --enable-libpulse --enable-libopus --enable-ffplay --extra-libs='-L/home/oook/user/ffmpeg-webrtc/FFmpeg-n4.3.3/metartc6 -lmetartccore6 -lpthread -lsrtp2 -lssl -lcrypto -ldl'
 
 # ffplay 播放命令
     ffplay -i 'webrtc://127.0.0.1:1985/rtc/v1/whip-play/?app=live&stream=livestream'
@@ -91,9 +86,6 @@ ffmpeg -i 'webrtc://127.0.0.1:1985/rtc/v1/whep/?app=live&stream=livestream' -vco
 ffmpeg -i 'webrtc://127.0.0.1:1985/rtc/v1/whip-play/?app=live&stream=livestream' -vcodec rawvideo -pix_fmt yuv420p -f v4l2 /dev/video30
 
 ./ffmpeg -re -i ffmpeg-webrtc/test.mp4 -vcodec libx264 -acodec opus -strict -2 -ar 48000 -f webrtc "http://192.168..1.23:1853/rtc/v1/whip/?app=live&stream=livestream12345"
-
-
-
 
 # 推流命令 WHIP
 ffmpeg ......-acodec opus -strict -2 -ar 48000 -f webrtc "url"  

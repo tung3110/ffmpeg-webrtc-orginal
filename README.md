@@ -36,7 +36,7 @@
 
     # cmake_x64会自动创建build文件夹
 
-    cd ffmpeg-webrtc/FFmpeg-n4.3.3/metartc6
+    cd ffmpeg-webrtc-orginal/FFmpeg-n4.3.3/metartc6
 
     cd /metartc6/libmetartccore6
    

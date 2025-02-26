@@ -49,5 +49,8 @@ libass-dev
     make
     cp libcrypto.a libssl.a ../
     ./configure  --enable-libx264 --enable-gpl --enable-cross-compile --enable-libpulse --enable-libopus --enable-ffplay --disable-shared --enable-static --extra-cflags='--static' --pkg-config-flags="--static" --enable-libsrt --enable-nonfree --enable-libass --enable-libfreetype --enable-libmp3lame --enable-openssl --extra-libs='-L/home/ubuntu/ffmpeg-webrtc/FFmpeg-n4.3.3/metartc6 -lmetartccore6 -lpthread -lsrtp2 -lssl -lcrypto -ldl' --extra-ldflags=-ldl
-    make -j4
+        
+    ./configure  --enable-libx264 --enable-gpl --enable-cross-compile --enable-libpulse --enable-libopus --enable-ffplay --disable-shared --enable-static --extra-cflags='--static' --pkg-config-flags="--static" --enable-libsrt --enable-nonfree --enable-libass --enable-libfreetype --enable-libmp3lame --enable-openssl --extra-libs='-L/home/ubuntu/ffmpeg-webrtc/FFmpeg-n4.3.3/metartc5 -lmetartccore5 -lpthread -lsrtp2 -lssl -lcrypto -ldl' --extra-ldflags=-ldl
+
+make -j4
     make install
